@@ -176,7 +176,7 @@ public class UserDB {
 	}
 	
 	public boolean save(){
-		this.racine = new Element("UserDB");//nous sommes obligé de créer une nouvelle base lors de la sauvegarde, pour ne pas avoir de doublon ou de garder les éléments supprimé...
+		this.racine = new Element("UserDB");
 		this.document = new Document(racine);
 		for(int i=0;i<this.ListGroups.size();i++){
 			this.saveGrouptoDB(this.ListGroups.get(i));
