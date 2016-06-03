@@ -6,8 +6,8 @@ import userModel.UserDB;
  * Elle contient un attribut correspondant à la base de données utilisateurs que vous allez créer.
  * Elle contient toutes les fonctions de l'interface IUserController que vous devez implémenter.
  * 
- * @author Jose Mennesson (Mettre à jour)
- * @version 04/2016 (Mettre à jour)
+ * @author Germain Belacel	et Edouard Lamoine
+ * @version 06/2016
  * 
  */
 
@@ -46,31 +46,45 @@ public class UserController implements IUserController
 	}
 
 	public boolean addAdmin(String adminLogin, String newAdminlogin, int adminID, String firstname, String surname,String pwd) {
-		return userDB.addAdmin(adminLogin, newAdminlogin, adminID, firstname, surname, pwd);
+		if(userDB.addAdmin(adminLogin, newAdminlogin, adminID, firstname, surname, pwd))
+			return this.saveDB();
+		return false;
 	}
 
 	public boolean addTeacher(String adminLogin, String newteacherLogin, int teacherID, String firstname,String surname, String pwd) {
-		return userDB.addTeacher(adminLogin, newteacherLogin, teacherID, firstname, surname, pwd);
+		if(userDB.addTeacher(adminLogin, newteacherLogin, teacherID, firstname, surname, pwd))
+			return this.saveDB();
+		return false;
 	}
 
 	public boolean addStudent(String adminLogin, String newStudentLogin, int studentID, String firstname,String surname, String pwd) {
-		return userDB.addStudent(adminLogin, newStudentLogin, studentID, firstname, surname, pwd);
+		if(userDB.addStudent(adminLogin, newStudentLogin, studentID, firstname, surname, pwd))
+			return this.saveDB();
+		return false;
 	}
 
 	public boolean removeUser(String adminLogin, String userLogin) {
-		return userDB.removeUser(adminLogin, userLogin);
+		if(userDB.removeUser(adminLogin, userLogin))
+			return this.saveDB();
+		return false;
 	}
 
 	public boolean addGroup(String adminLogin, int groupId) {
-		return userDB.addGroup(adminLogin, groupId);
+		if(userDB.addGroup(adminLogin, groupId))
+			return this.saveDB();
+		return false;
 	}
 
 	public boolean removeGroup(String adminLogin, int groupId) {
-		return userDB.removeGroup(adminLogin, groupId);
+		if(userDB.removeGroup(adminLogin, groupId))
+			return this.saveDB();
+		return false;
 	}
 
 	public boolean associateStudToGroup(String adminLogin, String studentLogin, int groupId) {
-		return userDB.associateStudToGroup(adminLogin, studentLogin, groupId);
+		if(userDB.associateStudToGroup(adminLogin, studentLogin, groupId))
+			return this.saveDB();
+		return false;
 	}
 
 	public String[] usersToString() {

@@ -2,6 +2,15 @@ package userModel;
 
 public class User {
 	
+	/**
+	 * Cette classe est un User, rassemble toutes les fonctions communes aux ... utilisateurs !
+	 * 
+	 * @author Germain Belacel	et Edouard Lamoine
+	 * @version 06/2016
+	 * 
+	 */
+	
+	
 	protected String login;
 	protected String surname;
 	protected String firstname;
